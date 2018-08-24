@@ -19,7 +19,7 @@ class Link extends CI_Controller{
 		$key = $this->uri->segment(4);
 		$isi = array(
 			'konten' => 'admin/add_link',
-			'data' => $this->db->query("SELECT * FROM tbl_input WHERE nip='$key'")
+			'data' => $this->m_input->getData($key)
 		);
 
 		$this->load->view('layout/_content', $isi);
@@ -57,11 +57,11 @@ class Link extends CI_Controller{
 			$this->db->update('tbl_input');
 			$this->db->where('tbl_input.nip', $key);
 
-			redirect('admin/link/edit_link/'.$data['nip']);
+			redirect('admin/jaminan/edit_jaminan/'.$data['nip']);
 			// $this->session->set_flashdata('Info', 'Data '.$data['nip'].' dengan nama '.$data['nama_nsbh'].' berhasil diubah!');
 		} else{
 			$this->m_link->insertData($data);
-			redirect('admin/link/add_link/'.$data['nip']);
+			redirect('admin/jaminan/add_jaminan/'.$data['nip']);
 			// $this->session->set_flashdata('Info', 'Data '.$data['nip'].' dengan nama '.$data['nama_nsbh'].' berhasil disimpan!');
 		}
 	}

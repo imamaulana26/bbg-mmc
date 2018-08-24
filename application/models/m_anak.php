@@ -20,6 +20,15 @@ class M_anak extends CI_Model{
 		$this->db->insert('tbl_anak', $data);
 	}
 
+	public function getJoin($key){
+		$this->db->select('*');
+		$this->db->from('tbl_input');
+		$this->db->join('tbl_induk', 'tbl_input.nip = tbl_induk.nip', 'inner');
+		$this->db->where('tbl_input.nip', $key);
+		$query = $this->db->get();
+		return $query;
+	}
+
 	public function selectJoin($key){
 		$this->db->select('*');
 		$this->db->from('tbl_input');

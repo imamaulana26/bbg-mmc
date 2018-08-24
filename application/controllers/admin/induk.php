@@ -41,7 +41,7 @@ class Induk extends CI_Controller{
 			'nip' => $this->input->post('nip'),
 			'mata_uang' => $this->input->post('uang'),
 			'tgl_nota' => $this->input->post('tgl_nota'),
-			'nom_max_guna' => str_replace('.', '', $this->input->post('maks_guna')),
+			'nom_max_guna' => str_replace(',', '', $this->input->post('maks_guna')),
 			// 'tgl_cair' => $this->input->post('tgl_cair'),
 			'rating_int' => $this->input->post('rating_int'),
 			'rating_eks' => $this->input->post('rating_eks'),

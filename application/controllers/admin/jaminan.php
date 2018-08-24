@@ -4,10 +4,7 @@ class Jaminan extends CI_Controller{
 		parent::__construct();
 		$this->load->view('layout/_header');
 		$this->load->view('layout/_footer');
-		$model = array('m_input','m_link');
-		foreach($model as $mod){
-			$this->load->model($mod);
-		}
+		$this->load->model('m_jaminan');
 		$username = $this->session->userdata('username');
 		if(empty($username)){
 			$this->session->sess_destroy();
@@ -15,11 +12,11 @@ class Jaminan extends CI_Controller{
 		}
 	}
 
-	public function add_jamainan(){
+	public function add_jaminan(){
 		$key = $this->uri->segment(4);
 		$isi = array(
-			'konten' => 'admin/add_jamainan',
-			'data' => $this->db->query("SELECT * FROM tbl_input WHERE nip='$key'")
+			'konten' => 'admin/add_jaminan',
+			'data' => $this->m_jaminan->selectJoin($key)
 		);
 
 		$this->load->view('layout/_content', $isi);
@@ -29,7 +26,7 @@ class Jaminan extends CI_Controller{
 		$key = $this->uri->segment(4);
 		$isi = array(
 			'konten' => 'admin/edit_jaminan',
-			'data' => $this->m_link->selectJoin($key)
+			'data' => $this->m_jaminan->getJoin($key)
 		);
 
 		$this->load->view('layout/_content', $isi);
@@ -39,22 +36,20 @@ class Jaminan extends CI_Controller{
 		$key = $this->input->post('nip');
 		$data = array(
 			'nip' => $this->input->post('nip'),
-			'kode_jaminan' => $this->input->post('kode_jaminan'),
-			'tgl_cair' => $this->input->post('tgl_cair'),
-			'tgl_jth_tempo' => $this->input->post('tgl_jth_tempo'),
-			'frek_review' => $this->input->post('frek_review'),
-			'cif' => $this->input->post('cif_nsbh'),
-			'cif_induk' => $this->input->post('cif_induk')
+			'tipe_jaminan' => $this->input->post('tipe_jaminan'),
+			'deskripsi' => $this->input->post('deskripsi'),
+			'negara' => $this->input->post('negara'),
+			'njop' => str_replace(',', '', $this->input->post('njop'))
 		);
 
-		$query = $this->m_link->getData($key);
+		$query = $this->m_jaminan->getData($key);
 		if($query->num_rows() > 0){
-			$this->m_link->updateData($key, $data);
-			redirect('admin/link/edit_link/'.$data['nip']);
+			$this->m_jaminan->updateData($key, $data);
+			redirect('admin/asset/edit_asset/'.$data['nip']);
 			// $this->session->set_flashdata('Info', 'Data '.$data['nip'].' dengan nama '.$data['nama_nsbh'].' berhasil diubah!');
 		} else{
-			$this->m_link->insertData($data);
-			redirect('admin/link/add_link/'.$data['nip']);
+			$this->m_jaminan->insertData($data);
+			redirect('admin/asset/add_asset/'.$data['nip']);
 			// $this->session->set_flashdata('Info', 'Data '.$data['nip'].' dengan nama '.$data['nama_nsbh'].' berhasil disimpan!');
 		}
 	}

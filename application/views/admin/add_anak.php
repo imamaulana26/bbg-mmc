@@ -34,12 +34,12 @@
 							</div>
 							<div class="col-md-4">
 								<label>Nominal Fasilitas</label>
-								<input type="text" class="form-control" value="<?= number_format($row->nom_fasilitas, 0, ',', '.') ?>" readonly>
+								<input type="text" class="form-control" value="<?= number_format($row->nom_fasilitas, 0, '.', ',') ?>" readonly>
 							</div>
 							<div class="col-md-4">
 								<label>Maks Penggunaan</label>
 								<input type="text" class="form-control" value="<?= number_format(
-								$row->nom_max_guna, 0, ',', '.') ?>" readonly>
+								$row->nom_max_guna, 0, '.', ',') ?>" readonly>
 							</div>
 						</div>
 						<div class="form-group row">

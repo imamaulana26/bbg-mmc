@@ -9,13 +9,13 @@
 
     <title>CI - Multiposting Murabahah Chaneling</title>
     <!-- Bootstrap Core CSS -->
-    <link href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/bootstrap/css/bootstrap.css') ?>" rel="stylesheet">
     <!-- MetisMenu CSS -->
     <link href="<?= base_url('assets/metisMenu/metisMenu.min.css') ?>" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?= base_url('assets/css/sb-admin-2.css') ?>" rel="stylesheet">
     <!-- Morris Charts CSS -->
-    <link href="<?= base_url('assets/morrisjs/morris.css') ?>" rel="stylesheet">
+    <!-- <link href="<?= base_url('assets/morrisjs/morris.css') ?>" rel="stylesheet"> -->
     <!-- Custom Fonts -->
     <link href="<?= base_url('assets/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet" type="text/css">
     <!-- DataTables CSS -->
@@ -24,6 +24,8 @@
     <link href="<?= base_url('assets/datatables-responsive/dataTables.responsive.css') ?>" rel="stylesheet">
     <!-- Bootstrap-datepicker CSS -->
     <link href="<?= base_url('assets/bootstrap-datepicker/css/bootstrap-datepicker.min.css') ?>" rel="stylesheet">
+    <!-- Bootstrap Validator -->
+    <link href="<?= base_url('assets/bootstrapvalidator/dist/css/bootstrapValidator.css') ?>">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

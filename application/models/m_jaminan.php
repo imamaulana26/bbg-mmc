@@ -11,6 +11,17 @@ class M_jaminan extends CI_Model{
 		return $result;
 	}
 
+	public function getJoin($key){
+		$this->db->select('*');
+		$this->db->from('tbl_input');
+		$this->db->join('tbl_induk', 'tbl_input.nip = tbl_induk.nip', 'inner');
+		$this->db->join('tbl_link', 'tbl_input.nip = tbl_link.nip', 'inner');
+		$this->db->join('tbl_jaminan', 'tbl_input.nip = tbl_jaminan.nip', 'inner');
+		$this->db->where('tbl_input.nip', $key);
+		$query = $this->db->get();
+		return $query;
+	}
+
 	public function updateData($key, $data){
 		$this->db->where('nip', $key);
 		$this->db->update('tbl_jaminan', $data);
@@ -24,7 +35,7 @@ class M_jaminan extends CI_Model{
 		$this->db->select('*');
 		$this->db->from('tbl_input');
 		$this->db->join('tbl_induk', 'tbl_input.nip = tbl_induk.nip', 'inner');
-		$this->db->join('tbl_anak', 'tbl_input.nip = tbl_anak.nip', 'inner');
+		$this->db->join('tbl_link', 'tbl_input.nip = tbl_link.nip', 'inner');
 		$this->db->where('tbl_input.nip', $key);
 		$query = $this->db->get();
 		return $query;

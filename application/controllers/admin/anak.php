@@ -19,7 +19,7 @@ class Anak extends CI_Controller{
 		$key = $this->uri->segment(4);
 		$isi = array(
 			'konten' => 'admin/add_anak',
-			'data' => $this->m_anak->selectJoin($key),
+			'data' => $this->m_anak->getJoin($key),
 			'lokasi' => $this->m_lokasi->getAll()
 		);
 

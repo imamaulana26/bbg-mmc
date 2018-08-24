@@ -34,7 +34,7 @@
 					if(!empty($info)){ ?>
 						<div class="alert alert-success fade in">
 							<button type="button" class="close" data-dismiss="alert">&times;</button>
-							<i class="glyphicon glyphicon-check">&nbsp;<?= $info; ?></i>
+							<i class="glyphicon glyphicon-check">&nbsp;<?= $info ?></i>
 						</div>
 					<?php } ?>
 		            <div class="panel-body">
