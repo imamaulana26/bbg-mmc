@@ -1,109 +1,70 @@
-<div id="wrapper">
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <?php $this->load->view('layout/_navbar') ?>
-    </nav>
-
-    <div id="page-wrapper">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Dashboard</h1>
-            </div>
-            <!-- /.col-lg-12 -->
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Dashboard</h1>
         </div>
-        <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-comments fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
-                                <div>New Comments!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-green">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-tasks fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
-                                <div>New Tasks!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-yellow">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">124</div>
-                                <div>New Orders!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-red">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-support fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">13</div>
-                                <div>Support Tickets!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+        <!-- /.col-lg-12 -->
     </div>
-    <!-- /#page-wrapper -->
+    <!-- /.row -->
 
+    <div class="row">
+        <div class="col-lg-12">
+            <?php $info = $this->session->flashdata('Info');
+            if (!empty($info)) { ?>
+                <br>
+                <div class="alert alert-success fade in">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <i class="glyphicon glyphicon-check"></i> <?= $info ?>
+                </div>
+            <?php } ?>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table width="100%" class="table detail table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>No Employe</th>
+                                <th>Nama Lengkap</th>
+                                <th>Jabatan</th>
+                                <th>Cabang</th>
+                                <th>Email</th>
+                                <th>Log On</th>
+                                <th>Last Login</th>
+                                <th>Akses User</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1;
+                            foreach ($list as $li) { ?>
+                                <tr>
+                                    <td><?= $no++ ?></td>
+                                    <td><?= cetak($li->nip_user) ?></td>
+                                    <td><?= cetak($li->nama_user) ?></td>
+                                    <td><?= cetak($li->jabatan) ?></td>
+                                    <td><?= cetak($li->cabang) ?></td>
+                                    <td><?= cetak($li->email) ?></td>
+                                    <td><?= cetak($li->log_on) ?></td>
+                                    <td><?= cetak($li->last_login) ?></td>
+                                    <td><?= cetak($li->akses_user) ?></td>
+                                    <td class="text-center">
+                                        <a href="<?= site_url('admin/user/edit_user/') . $li->nip_user ?>">
+                                            <i class="glyphicon glyphicon-edit" title="Edit"></i>
+                                        </a>
+                                        <!-- <a href="<?= site_url('admin/user/delete_user/') . $li->id ?>" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="glyphicon glyphicon-trash" title="Delete"></i></a> -->
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
 </div>
-<!-- /#wrapper -->
+<!-- /#page-wrapper -->

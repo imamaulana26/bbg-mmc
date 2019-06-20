@@ -6,7 +6,7 @@ class M_jaminan extends CI_Model{
 	}
 
 	public function getData($key){
-		$this->db->where('nip', $key);
+		$this->db->where('no_fos', $key);
 		$result = $this->db->get('tbl_jaminan');
 		return $result;
 	}
@@ -14,16 +14,16 @@ class M_jaminan extends CI_Model{
 	public function getJoin($key){
 		$this->db->select('*');
 		$this->db->from('tbl_input');
-		$this->db->join('tbl_induk', 'tbl_input.nip = tbl_induk.nip', 'inner');
-		$this->db->join('tbl_link', 'tbl_input.nip = tbl_link.nip', 'inner');
-		$this->db->join('tbl_jaminan', 'tbl_input.nip = tbl_jaminan.nip', 'inner');
-		$this->db->where('tbl_input.nip', $key);
+		$this->db->join('tbl_induk', 'tbl_input.no_fos = tbl_induk.no_fos', 'inner');
+		$this->db->join('tbl_link', 'tbl_input.no_fos = tbl_link.no_fos', 'inner');
+		$this->db->join('tbl_jaminan', 'tbl_input.no_fos = tbl_jaminan.no_fos', 'inner');
+		$this->db->where('tbl_input.no_fos', $key);
 		$query = $this->db->get();
 		return $query;
 	}
 
 	public function updateData($key, $data){
-		$this->db->where('nip', $key);
+		$this->db->where('no_fos', $key);
 		$this->db->update('tbl_jaminan', $data);
 	}
 
@@ -34,9 +34,9 @@ class M_jaminan extends CI_Model{
 	public function selectJoin($key){
 		$this->db->select('*');
 		$this->db->from('tbl_input');
-		$this->db->join('tbl_induk', 'tbl_input.nip = tbl_induk.nip', 'inner');
-		$this->db->join('tbl_link', 'tbl_input.nip = tbl_link.nip', 'inner');
-		$this->db->where('tbl_input.nip', $key);
+		$this->db->join('tbl_induk', 'tbl_input.no_fos = tbl_induk.no_fos', 'inner');
+		$this->db->join('tbl_link', 'tbl_input.no_fos = tbl_link.no_fos', 'inner');
+		$this->db->where('tbl_input.no_fos', $key);
 		$query = $this->db->get();
 		return $query;
 	}

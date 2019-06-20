@@ -6,13 +6,13 @@ class M_anak extends CI_Model{
 	}
 
 	public function getData($key){
-		$this->db->where('nip', $key);
+		$this->db->where('no_fos', $key);
 		$result = $this->db->get('tbl_anak');
 		return $result;
 	}
 
 	public function updateData($key, $data){
-		$this->db->where('nip', $key);
+		$this->db->where('no_fos', $key);
 		$this->db->update('tbl_anak', $data);
 	}
 
@@ -23,8 +23,8 @@ class M_anak extends CI_Model{
 	public function getJoin($key){
 		$this->db->select('*');
 		$this->db->from('tbl_input');
-		$this->db->join('tbl_induk', 'tbl_input.nip = tbl_induk.nip', 'inner');
-		$this->db->where('tbl_input.nip', $key);
+		$this->db->join('tbl_induk', 'tbl_input.no_fos = tbl_induk.no_fos', 'inner');
+		$this->db->where('tbl_input.no_fos', $key);
 		$query = $this->db->get();
 		return $query;
 	}
@@ -32,9 +32,9 @@ class M_anak extends CI_Model{
 	public function selectJoin($key){
 		$this->db->select('*');
 		$this->db->from('tbl_input');
-		$this->db->join('tbl_induk', 'tbl_input.nip = tbl_induk.nip', 'inner');
-		$this->db->join('tbl_anak', 'tbl_input.nip = tbl_anak.nip', 'inner');
-		$this->db->where('tbl_input.nip', $key);
+		$this->db->join('tbl_induk', 'tbl_input.no_fos = tbl_induk.no_fos', 'inner');
+		$this->db->join('tbl_anak', 'tbl_input.no_fos = tbl_anak.no_fos', 'inner');
+		$this->db->where('tbl_input.no_fos', $key);
 		$query = $this->db->get();
 		return $query;
 	}

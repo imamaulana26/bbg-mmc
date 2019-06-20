@@ -5,43 +5,50 @@ class M_login extends CI_Model{
 	}
 
 	function getLogin($username, $password){
-		$this->db->where('username', $username);
+		$this->db->where('email', $username);
 		$this->db->where('password', $password);
-		$query = $this->db->get('tbl_user');
-		if($query->num_rows() == 1){
+		$query = $this->db->get('tbl_users');
+		if($query->num_rows() > 0){
 			return $query->row_array();
 		} else{
-			$this->session->set_flashdata('msg', 'Username atau Password salah!');
+			$this->session->set_flashdata('msg', 'Email atau Password salah!');
 			redirect('login');
 		}
 	}
 
-	function update($id, $status){
-		$data['status'] = $status;
-		$this->db->where('id', $id);
-		$this->db->update('tbl_user', $data);
+	function loginLDAP($username){
+		$this->db->where('email', $username);
+		$query = $this->db->get('tbl_users');
+		if($query->num_rows() > 0){
+			return $query->row_array();
+		} else{
+			$this->session->set_flashdata('msg', 'Email atau Password salah!');
+			redirect('login');
+		}
+	}
+
+	function getData(){
+		$query = $this->db->get('tbl_users');
+		return $query;
+	}
+
+	function update($id, $active){
+		$data['active'] = $active;
+		$this->db->where('nip_user', $id);
+		$this->db->update('tbl_users', $data);
 		return true;
 	}
 
-	/*function getLogin($username, $password){
-		// $pass_md5 = md5($password);
-		$this->db->where('username', $username);
-		$this->db->where('password', $password);
-		// $this->db->where('logged_in', $logged_in);
-		$query = $this->db->get('tbl_user');
-		return $query->result();
+	function log_on($id, $log){
+		$data['log_on'] = $log;
+		$this->db->where('nip_user', $id);
+		$this->db->update('tbl_users', $data);
+		return true;
 	}
 
-	function getId($username, $password, $logged_in){
-		$this->db->where('username', $username);
-		$this->db->where('password', $password);
-		$this->db->where('logged_in', $logged_in);
-		return $this->db->get('tbl_user')->result();
+	function logout($id, $data){
+		$this->db->where('nip_user', $id);
+		$this->db->update('tbl_users', $data);
+		return true;
 	}
-
-	function updateStatus($data){
-		$this->db->set('logged_in', $data['logged_in']);
-		$this->db->where('username', $data['username']);
-		$this->db->update('tbl_user');
-	}*/
 }

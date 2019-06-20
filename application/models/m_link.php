@@ -6,13 +6,13 @@ class M_link extends CI_Model{
 	}
 
 	public function getData($key){
-		$this->db->where('nip', $key);
+		$this->db->where('no_fos', $key);
 		$result = $this->db->get('tbl_link');
 		return $result;
 	}
 
 	public function updateData($key, $data){
-		$this->db->where('nip', $key);
+		$this->db->where('no_fos', $key);
 		$this->db->update('tbl_link', $data);
 	}
 
@@ -23,8 +23,8 @@ class M_link extends CI_Model{
 	public function selectJoin($key){
 		$this->db->select('*');
 		$this->db->from('tbl_input');
-		$this->db->join('tbl_link', 'tbl_input.nip = tbl_link.nip', 'inner');
-		$this->db->where('tbl_input.nip', $key);
+		$this->db->join('tbl_link', 'tbl_input.no_fos = tbl_link.no_fos', 'inner');
+		$this->db->where('tbl_input.no_fos', $key);
 		$query = $this->db->get();
 		return $query;
 	}

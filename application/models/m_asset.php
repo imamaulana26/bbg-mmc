@@ -6,7 +6,7 @@ class M_asset extends CI_Model{
 	}
 
 	public function getData($key){
-		$this->db->where('nip', $key);
+		$this->db->where('no_fos', $key);
 		$result = $this->db->get('tbl_asset');
 		return $result;
 	}
@@ -14,9 +14,9 @@ class M_asset extends CI_Model{
 	public function getJoin($key){
 		$this->db->select('*');
 		$this->db->from('tbl_input');
-		$this->db->join('tbl_induk', 'tbl_input.nip = tbl_induk.nip', 'inner');
-		$this->db->join('tbl_asset', 'tbl_input.nip = tbl_asset.nip', 'inner');
-		$this->db->where('tbl_input.nip', $key);
+		$this->db->join('tbl_induk', 'tbl_input.no_fos = tbl_induk.no_fos', 'inner');
+		$this->db->join('tbl_asset', 'tbl_input.no_fos = tbl_asset.no_fos', 'inner');
+		$this->db->where('tbl_input.no_fos', $key);
 		$query = $this->db->get();
 		return $query;
 	}
@@ -24,14 +24,14 @@ class M_asset extends CI_Model{
 	public function selectJoin($key){
 		$this->db->select('*');
 		$this->db->from('tbl_input');
-		$this->db->join('tbl_induk', 'tbl_input.nip = tbl_induk.nip', 'inner');
-		$this->db->where('tbl_input.nip', $key);
+		$this->db->join('tbl_induk', 'tbl_input.no_fos = tbl_induk.no_fos', 'inner');
+		$this->db->where('tbl_input.no_fos', $key);
 		$query = $this->db->get();
 		return $query;
 	}
 
 	public function updateData($key, $data){
-		$this->db->where('nip', $key);
+		$this->db->where('no_fos', $key);
 		$this->db->update('tbl_asset', $data);
 	}
 
