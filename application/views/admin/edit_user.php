@@ -15,10 +15,10 @@
 
     <div class="row">
         <?php foreach ($data->result() as $dt) { ?>
-            <form method="post" class="form-horizontal" action="<?= site_url('admin/user/simpanData') ?>" enctype="multipart/form-data" id="formValid">
+            <form method="post" class="form-horizontal" action="<?= site_url(ucfirst('admin/user/simpanData')) ?>" enctype="multipart/form-data" id="formValid">
                 <div class="col-sm-4">
                     <div class="text-center">
-                        <img id="preview" class="img-thumbnail" src="<?= site_url('assets/images/' . $dt->photo) ?>" style="border-radius: 100em; width: 160px; height: 160px">
+                        <img id="preview" class="img-thumbnail" src="<?= site_url(ucfirst('assets/images/' . $dt->photo)) ?>" style="border-radius: 100em; width: 160px; height: 160px">
                         <input type="file" name="userfile" id="userfile" class="text-center center-block file-upload" onchange="ImgPreview(this, 'preview')">
                         <i class="text-muted">Maks. file 1MB</i>
                     </div>

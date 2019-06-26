@@ -1,5 +1,5 @@
 <?php foreach($getAll->result() as $dt){ ?>
-<form method="post" action="<?= site_url('approval/dashboard/updateDetail') ?>">        
+<form method="post" action="<?= site_url(ucfirst('approval/dashboard/updateDetail')) ?>">        
 <div class="modal fade" id="modal-form<?= $dt->no_fos ?>" tabindex="-1" dialog="role" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -156,7 +156,7 @@
 
 <!-- Modal Detail -->
 <?php foreach($getAll->result() as $dt){ ?>
-<form method="post" action="<?= site_url('approval/dashboard/approve') ?>">
+<form method="post" action="<?= site_url(ucfirst('approval/dashboard/approve')) ?>">
 <div class="modal fade" id="detail<?= $dt->no_fos ?>" tabindex="-1" dialog="role" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">

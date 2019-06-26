@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-lg-12">
             <i class="text-danger">*) Saya <b><?= $this->session->userdata('nama_user') ?></b>, dengan ini menyatakan sebenar-benarnya bahwa apa yang saya input pada Aplikasi ini sesuai dengan dokumen yang ada dan dapat dipertanggung jawabkan.</i>
-            <form method="post" id="formValid" action="<?= site_url('maker/input/simpanData') ?>" class="form-horizontal">
+            <form method="post" id="formValid" action="<?= site_url(ucfirst('maker/input/simpanData')) ?>" class="form-horizontal">
                 <?php $cif = ""; foreach($data->result() as $row){ $cif = $row->cif_induk; ?>
                 <div class="panel panel-default">
                         <div class="panel-body">

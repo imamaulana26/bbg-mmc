@@ -19,7 +19,7 @@
                                 <strong><?= $msg ?></strong>
                             </div>
                         <?php } ?>
-                        <form action="<?= site_url('login/auth') ?>" method="post">
+                        <form action="<?= site_url('Login/auth') ?>" method="post">
                             <fieldset>
                                 <div class="form-group input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>

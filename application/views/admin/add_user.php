@@ -21,7 +21,7 @@
     <?php } ?>
 
     <div class="row">
-        <form method="post" class="form-horizontal" action="<?= site_url('admin/user/simpanBaru') ?>" enctype="multipart/form-data" id="formValid">
+        <form method="post" class="form-horizontal" action="<?= site_url(ucfirst('admin/user/simpanBaru')) ?>" enctype="multipart/form-data" id="formValid">
             <div class="col-sm-4">
                 <div class="text-center">
                     <img id="preview" class="img-thumbnail" style="border-radius: 100em; width: 160px; height: 160px">

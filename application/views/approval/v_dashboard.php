@@ -21,7 +21,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?= site_url('maker/koperasi') ?>">
+                <a href="<?= site_url(ucfirst('maker/koperasi')) ?>">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?= site_url('approval/dashboard/approve') ?>">
+                <a href="<?= site_url(ucfirst('approval/dashboard/approve')) ?>">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -126,7 +126,7 @@
                                     <td><?= number_format($row->nom_fasilitas, 0, '.', ',') ?></td>
                                     <?php if ($this->session->userdata('akses_user') != 'Approval') { ?>
                                         <td class="text-center">
-                                            <a href="<?= site_url('maker/input/edit_input/') . $row->no_fos ?>"><i class="glyphicon glyphicon-edit"></i></a>
+                                            <a href="<?= site_url(ucfirst('maker/input/edit_input/')) . $row->no_fos ?>"><i class="glyphicon glyphicon-edit"></i></a>
                                         </td>
                                     <?php } ?>
                                 </tr>
@@ -207,7 +207,7 @@
                                     <td><?= $row->status ?></td>
                                     <?php if ($this->session->userdata('akses_user') != 'Approval') { ?>
                                         <td class="text-center">
-                                            <a href="<?= site_url('maker/input/edit_input/') . $row->no_fos ?>"><i class="glyphicon glyphicon-edit"></i></a>
+                                            <a href="<?= site_url(ucfirst('maker/input/edit_input/')) . $row->no_fos ?>"><i class="glyphicon glyphicon-edit"></i></a>
                                         </td>
                                     <?php } ?>
                                 </tr>

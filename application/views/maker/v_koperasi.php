@@ -17,7 +17,7 @@
 			<?php } ?>
 			
 			<?php if($this->session->userdata('akses_user') == 'Maker'){ ?>
-			<a href="<?= site_url('maker/koperasi/add_koperasi') ?>" class="btn btn-primary">Tambah Data <i class="glyphicon glyphicon-plus-sign"></i></a>
+			<a href="<?= site_url(ucfirst('maker/koperasi/add_koperasi')) ?>" class="btn btn-primary">Tambah Data <i class="glyphicon glyphicon-plus-sign"></i></a>
 			<br><br>
 			<?php } ?>
 	    	<div class="panel panel-default">
@@ -58,7 +58,7 @@
 			            		<?php }
 			            		if($this->session->userdata('akses_user') == 'Reviewer' || $this->session->userdata('akses_user') == 'Maker'){ ?>
 			            		<td class="text-center">
-			            			<a href="<?= site_url('maker/koperasi/edit_koperasi/').$dt->cif_induk ?>">
+			            			<a href="<?= site_url(ucfirst('maker/koperasi/edit_koperasi/')).$dt->cif_induk ?>">
 	                                	<i class="glyphicon glyphicon-edit" title="Edit"></i>
 	                            	</a>
 	                            </td>

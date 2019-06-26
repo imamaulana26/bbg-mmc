@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?= site_url('maker/koperasi') ?>">
+                <a href="<?= site_url(ucfirst('maker/koperasi')) ?>">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?= site_url('checker/dashboard') ?>">
+                <a href="<?= site_url(ucfirst('checker/dashboard')) ?>">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

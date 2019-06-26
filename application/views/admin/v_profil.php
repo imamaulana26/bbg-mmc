@@ -16,10 +16,10 @@
 
         <div class="row">
             <?php if ($this->session->userdata('akses_user') == 'Admin') { ?>
-                <form method="post" class="form-horizontal" action="<?= site_url('admin/user/simpanData') ?>" enctype="multipart/form-data">
+                <form method="post" class="form-horizontal" action="<?= site_url(ucfirst('admin/user/simpanData')) ?>" enctype="multipart/form-data">
                     <div class="col-sm-4">
                         <div class="text-center">
-                            <img id="preview" class="img-thumbnail" src="<?= site_url('assets/images/' . $dt->photo) ?>" style="border-radius: 100em; width: 160px; height: 160px">
+                            <img id="preview" class="img-thumbnail" src="<?= site_url(ucfirst('assets/images/' . $dt->photo)) ?>" style="border-radius: 100em; width: 160px; height: 160px">
                             <input type="file" name="userfile" id="userfile" class="text-center center-block file-upload" onchange="ImgPreview(this, 'preview')">
                         </div>
                         <hr>
@@ -112,7 +112,7 @@
                 <form class="form-horizontal">
                     <div class="col-sm-4">
                         <div class="text-center">
-                            <img id="preview" class="img-thumbnail" src="<?= site_url('assets/images/' . $dt->photo) ?>" style="border-radius: 100em; width: 160px; height: 160px">
+                            <img id="preview" class="img-thumbnail" src="<?= site_url(ucfirst('assets/images/' . $dt->photo)) ?>" style="border-radius: 100em; width: 160px; height: 160px">
                         </div>
                         <hr>
 

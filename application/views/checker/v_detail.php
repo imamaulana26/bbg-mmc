@@ -1,5 +1,5 @@
 <?php foreach($getAll->result() as $dt){ ?>
-<form method="post" action="<?= site_url('checker/dashboard/approve') ?>">
+<form method="post" action="<?= site_url(ucfirst('checker/dashboard/approve')) ?>">
 <div class="modal fade" id="detail<?= $dt->no_fos ?>" tabindex="-1" dialog="role" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">

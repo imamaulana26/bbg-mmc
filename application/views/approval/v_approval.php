@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?= site_url('maker/koperasi') ?>">
+                <a href="<?= site_url(ucfirst('maker/koperasi')) ?>">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="<?= site_url('approval/dashboard') ?>">
+                <a href="<?= site_url(ucfirst('approval/dashboard')) ?>">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -144,7 +144,7 @@
                                         if ($level == 'Reviewer') {
                                             echo "<a href='' data-toggle='modal' data-target='#modal-form$row->no_fos' title='" . $row->no_fos . "'><i class='glyphicon glyphicon-search'></i></a>";
                                         } else {
-                                            echo "<a href='" . site_url('approval/dashboard/download/') . $row->no_fos . "' id='upload'><i class='glyphicon glyphicon-share' title='Send to ftp'></i></a>";
+                                            echo "<a href='" . site_url(ucfirst('approval/dashboard/download/')) . $row->no_fos . "' id='upload'><i class='glyphicon glyphicon-share' title='Send to ftp'></i></a>";
                                         } ?>
                                     </td>
                                 </tr>
@@ -245,7 +245,7 @@
                                         <td><?= $dt->status ?></td>
                                         <?php if ($this->session->userdata('akses_user') != 'Approval') { ?>
                                             <td class="text-center">
-                                                <a href="<?= site_url('maker/input/edit_input/') . $dt->no_fos ?>"><i class="glyphicon glyphicon-edit"></i></a>
+                                                <a href="<?= site_url(ucfirst('maker/input/edit_input/')) . $dt->no_fos ?>"><i class="glyphicon glyphicon-edit"></i></a>
                                             </td>
                                         <?php } ?>
                                     </tr>

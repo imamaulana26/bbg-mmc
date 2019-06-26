@@ -9,7 +9,7 @@
 			<i class="text-danger">*) Saya <b><?= $this->session->userdata('nama_user') ?></b>, dengan ini menyatakan sebenar-benarnya bahwa apa yang saya input pada Aplikasi ini sesuai dengan dokumen yang ada dan dapat dipertanggung jawabkan.</i>
 			<div class="panel panel-default">
 				<?php foreach($data->result() as $dt){ ?>
-				<form class="form-horizontal" method="post" id="formValid" action="<?= site_url('maker/koperasi/update') ?>">
+				<form class="form-horizontal" method="post" id="formValid" action="<?= site_url(ucfirst('maker/koperasi/update')) ?>">
 					<div class="panel-body">
 						<?php if($this->session->userdata('akses_user') == 'Reviewer'){ ?>
 						<div class="row">
@@ -138,7 +138,7 @@
 					</div>
 					<div class="panel-footer">
 						<div class="btn-groups">
-							<a href="<?= site_url('maker/koperasi') ?>" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Back</a>
+							<a href="<?= site_url(ucfirst('maker/koperasi')) ?>" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Back</a>
 							<button type="submit" class="btn btn-primary pull-right">
 								Simpan <i class="glyphicon glyphicon-check"></i>
 							</button>

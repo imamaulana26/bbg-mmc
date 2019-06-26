@@ -10,7 +10,7 @@
 			<i class="text-danger">*) Saya <b><?= $this->session->userdata('nama_user') ?></b>, dengan ini menyatakan sebenar-benarnya bahwa apa yang saya input pada Aplikasi ini sesuai dengan dokumen yang ada dan dapat dipertanggung jawabkan.</i>
 			<div class="panel panel-default">
 				<?php foreach($data->result() as $row){ ?>
-				<form method="post" id="formValid" action="<?= site_url('maker/induk/simpanData') ?>" class="form-horizontal">
+				<form method="post" id="formValid" action="<?= site_url(ucfirst('maker/induk/simpanData')) ?>" class="form-horizontal">
 				<div class="panel-body">
 					<input type="hidden" name="no_fos" value="<?= $row->no_fos ?>">
 					<input type="hidden" name="nip" value="<?= $row->nip_member_kop ?>">
@@ -232,7 +232,7 @@
 				</div>
 				<div class="panel-footer">
 					<div class="btn-groups">
-						<a href="<?= site_url('maker/input/edit_input/').$row->no_fos ?>" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Back</a>
+						<a href="<?= site_url(ucfirst('maker/input/edit_input/')).$row->no_fos ?>" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Back</a>
 						<button type="submit" class="btn btn-primary pull-right">
 							Next <i class="glyphicon glyphicon-chevron-right"></i>
 						</button>

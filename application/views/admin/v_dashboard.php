@@ -48,10 +48,10 @@
                                     <td><?= cetak($li->last_login) ?></td>
                                     <td><?= cetak($li->akses_user) ?></td>
                                     <td class="text-center">
-                                        <a href="<?= site_url('admin/user/edit_user/') . $li->nip_user ?>">
+                                        <a href="<?= site_url(ucfirst('admin/user/edit_user/')) . $li->nip_user ?>">
                                             <i class="glyphicon glyphicon-edit" title="Edit"></i>
                                         </a>
-                                        <!-- <a href="<?= site_url('admin/user/delete_user/') . $li->id ?>" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="glyphicon glyphicon-trash" title="Delete"></i></a> -->
+                                        <!-- <a href="<?= site_url(ucfirst('admin/user/delete_user/')) . $li->id ?>" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="glyphicon glyphicon-trash" title="Delete"></i></a> -->
                                     </td>
                                 </tr>
                             <?php } ?>

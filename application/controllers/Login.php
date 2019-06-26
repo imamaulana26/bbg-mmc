@@ -43,31 +43,31 @@ class Login extends CI_Controller{
 				$status = 1;
 				$this->m_login->update($sess['nip'], $status);
 				$this->m_login->log_on($sess['nip'], $log_on);
-				redirect('login/success');
+				redirect(ucfirst('login/success'));
 			} elseif($stat == 0 && $sess['akses_user'] == 'Maker'){
 				$this->session->set_userdata($sess);
 				$status = 1;
 				$this->m_login->update($sess['nip'], $status);
 				$this->m_login->log_on($sess['nip'], $log_on);
-				redirect('login/success');
+				redirect(ucfirst('login/success'));
 			} elseif($stat == 0 && $sess['akses_user'] == 'Checker'){
 				$this->session->set_userdata($sess);
 				$status = 1;
 				$this->m_login->update($sess['nip'], $status);
 				$this->m_login->log_on($sess['nip'], $log_on);
-				redirect('login/success');
+				redirect(ucfirst('login/success'));
 			} elseif($stat == 0 && ($sess['akses_user'] == 'Approval')){
 				$this->session->set_userdata($sess);
 				$status = 1;
 				$this->m_login->update($sess['nip'], $status);
 				$this->m_login->log_on($sess['nip'], $log_on);
-				redirect('login/success');
+				redirect(ucfirst('login/success'));
 			} elseif($stat == 0 && ($sess['akses_user'] == 'Reviewer')){
 				$this->session->set_userdata($sess);
 				$status = 1;
 				$this->m_login->update($sess['nip'], $status);
 				$this->m_login->log_on($sess['nip'], $log_on);
-				redirect('login/success');
+				redirect(ucfirst('login/success'));
 			} else{
 				$this->session->set_flashdata('msg','Akun sedang digunakan!');
 				redirect('login');
@@ -112,34 +112,34 @@ class Login extends CI_Controller{
 					$status = 1;
 					$this->m_login->update($sess['nip'], $status);
 					$this->m_login->log_on($sess['nip'], $log_on);
-					redirect('login/success');
+					redirect(ucfirst('login/success'));
 				} elseif($stat == 0 && $sess['akses_user'] == 'Maker'){
 					$this->session->set_userdata($sess);
 					$status = 1;
 					$this->m_login->update($sess['nip'], $status);
 					$this->m_login->log_on($sess['nip'], $log_on);
-					redirect('login/success');
+					redirect(ucfirst('login/success'));
 				} elseif($stat == 0 && $sess['akses_user'] == 'Checker'){
 					$this->session->set_userdata($sess);
 					$status = 1;
 					$this->m_login->update($sess['nip'], $status);
 					$this->m_login->log_on($sess['nip'], $log_on);
-					redirect('login/success');
+					redirect(ucfirst('login/success'));
 				} elseif($stat == 0 && ($sess['akses_user'] == 'Approval')){
 					$this->session->set_userdata($sess);
 					$status = 1;
 					$this->m_login->update($sess['nip'], $status);
 					$this->m_login->log_on($sess['nip'], $log_on);
-					redirect('login/success');
+					redirect(ucfirst('login/success'));
 				} elseif($stat == 0 && ($sess['akses_user'] == 'Reviewer')){
 					$this->session->set_userdata($sess);
 					$status = 1;
 					$this->m_login->update($sess['nip'], $status);
 					$this->m_login->log_on($sess['nip'], $log_on);
-					redirect('login/success');
+					redirect(ucfirst('login/success'));
 				} else{
 					$this->session->set_flashdata('msg','Akun sedang digunakan!');
-					redirect('login');
+					redirect(ucfirst('login'));
 				}
 			}
 			
@@ -168,23 +168,23 @@ class Login extends CI_Controller{
 		if($akses == 'Admin'){
 			$log['detail'] = 'Login berhasil';
 			$this->m_log->insert($log);
-			redirect('admin/dashboard');
+			redirect(ucfirst('admin/dashboard'));
 		} elseif($akses == 'Maker'){
 			$log['detail'] = 'Login berhasil';
 			$this->m_log->insert($log);
-			redirect('maker/dashboard');
+			redirect(ucfirst('maker/dashboard'));
 		} elseif($akses == 'Checker'){
 			$log['detail'] = 'Login berhasil';
 			$this->m_log->insert($log);
-			redirect('checker/dashboard');
+			redirect(ucfirst('checker/dashboard'));
 		} elseif($akses == 'Reviewer'){
 			$log['detail'] = 'Login berhasil';
 			$this->m_log->insert($log);
-			redirect('approval/dashboard');
+			redirect(ucfirst('approval/dashboard'));
 		} else{
 			$log['detail'] = 'Login berhasil';
 			$this->m_log->insert($log);
-			redirect('approval/dashboard');
+			redirect(ucfirst('approval/dashboard'));
 		}
 	}
 	
@@ -209,10 +209,10 @@ class Login extends CI_Controller{
 				$log['detail'] = 'Logout berhasil';
 				$this->m_log->insert($log);
 				$this->session->sess_destroy();
-				redirect('login');
+				redirect(ucfirst('login'));
 			}
 		} else{
-			redirect('login');
+			redirect(ucfirst('login'));
 		}
 	}
 }
