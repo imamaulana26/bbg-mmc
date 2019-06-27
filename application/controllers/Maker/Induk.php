@@ -11,7 +11,7 @@ class Induk extends CI_Controller{
 		$email = $this->session->userdata('email');
 		if(empty($email)){
 			$this->session->sess_destroy();
-			redirect('login');
+			redirect(ucfirst('login'));
 		}
 	}
 
@@ -72,15 +72,15 @@ class Induk extends CI_Controller{
 			
 			$cek = $this->m_anak->getData($key);
 			if($cek->num_rows() > 0){
-				redirect('maker/anak/edit_anak/'.$data['no_fos']);
+				redirect(ucfirst('maker/anak/edit_anak/'.$data['no_fos']));
 			} else{
-				redirect('maker/anak/add_anak/'.$data['no_fos']);
+				redirect(ucfirst('maker/anak/add_anak/'.$data['no_fos']));
 			}
 		} else{
 			$this->m_induk->insertData($data);
 			$log['detail'] = 'Berhasil menambahkan data pada Fasilitas Induk dengan No.MMC '.$data['no_fos'];
 			$this->m_log->insert($log);
-			redirect('maker/anak/add_anak/'.$data['no_fos']);
+			redirect(ucfirst('maker/anak/add_anak/'.$data['no_fos']));
 		}
 	}
 }

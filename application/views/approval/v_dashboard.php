@@ -6,7 +6,7 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-    
+
     <div class="row">
         <div class="col-lg-3 col-md-6">
             <div class="panel panel-primary">
@@ -194,16 +194,16 @@
                                     <td><?= $row->rek_nsbh ?></td>
                                     <td><?= number_format($row->nom_fasilitas, 0, '.', ',') ?></td>
                                     <!-- <td>
-                                                <?php if ($row->approve == '' || $row->approve == 'Pending') {
-                                                    echo "Checker";
-                                                } elseif ($row->approve == 'Approved' && $row->tgl_cair != '0000-00-00') {
-                                                    echo "Approval";
-                                                } elseif ($row->approve == 'Approved' && $row->tgl_cair == '0000-00-00' || $row->approve == 'Revisi Reviewer') {
-                                                    echo "Reviewer";
-                                                } else {
-                                                    echo "Maker";
-                                                } ?>
-                                            </td> -->
+                                                    <?php if ($row->approve == '' || $row->approve == 'Pending') {
+                                                        echo "Checker";
+                                                    } elseif ($row->approve == 'Approved' && $row->tgl_cair != '0000-00-00') {
+                                                        echo "Approval";
+                                                    } elseif ($row->approve == 'Approved' && $row->tgl_cair == '0000-00-00' || $row->approve == 'Revisi Reviewer') {
+                                                        echo "Reviewer";
+                                                    } else {
+                                                        echo "Maker";
+                                                    } ?>
+                                                </td> -->
                                     <td><?= $row->status ?></td>
                                     <?php if ($this->session->userdata('akses_user') != 'Approval') { ?>
                                         <td class="text-center">
@@ -272,3 +272,5 @@
 
 </div>
 <!-- /#page-wrapper -->
+
+<?php $this->load->view('approval/v_detail'); ?>

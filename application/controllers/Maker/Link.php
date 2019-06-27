@@ -11,7 +11,7 @@ class Link extends CI_Controller{
 		$email = $this->session->userdata('email');
 		if(empty($email)){
 			$this->session->sess_destroy();
-			redirect('login');
+			redirect(ucfirst('login'));
 		}
 	}
 
@@ -77,15 +77,15 @@ class Link extends CI_Controller{
 			
 			$cek = $this->m_link->getData($key);
 			if($cek->num_rows() > 0){	
-				redirect('maker/jaminan/edit_jaminan/'.$data['no_fos']);
+				redirect(ucfirst('maker/jaminan/edit_jaminan/'.$data['no_fos']));
 			} else{
-				redirect('maker/jaminan/add_jaminan/'.$data['no_fos']);
+				redirect(ucfirst('maker/jaminan/add_jaminan/'.$data['no_fos']));
 			}
 		} else{
 			$this->m_link->insertData($data);
 			$log['detail'] = 'Berhasil menambahkan data pada Pendaftaran Link Jaminan dengan No.MMC '.$data['no_fos'];
 			$this->m_log->insert($log);
-			redirect('maker/jaminan/add_jaminan/'.$data['no_fos']);
+			redirect(ucfirst('maker/jaminan/add_jaminan/'.$data['no_fos']));
 		}
 	}
 }

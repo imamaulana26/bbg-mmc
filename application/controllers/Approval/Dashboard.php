@@ -10,7 +10,7 @@ class Dashboard extends CI_Controller{
 		$email = $this->session->userdata('email');
 		if(empty($email)){
 			$this->session->sess_destroy();
-			redirect('login');
+			redirect(ucfirst('login'));
 		}
 		
 		if(!empty($this->session->userdata('filename'))){
@@ -341,7 +341,7 @@ class Dashboard extends CI_Controller{
 				$this->m_log->insert($log);
 				
 				$this->session->set_flashdata('Info',"Berhasil input tanggal pencairan pada <b>\"".$data['tgl_cair']."\"</b> dengan No.MMC <b>\"".$key."\"</b>.");
-				redirect('approval/dashboard/approve');
+				redirect(ucfirst('approval/dashboard/approve'));
 			} else{
 				echo "<script type='text/javascript'>alert('Koperasi belum memiliki kode LNGP, harap daftarkan terlebih dahulu');";
 				echo "window.location.href='".site_url('maker/koperasi')."';</script>";
@@ -421,7 +421,7 @@ class Dashboard extends CI_Controller{
 			$this->m_input->updateData($key, $data);
 			$this->m_log->insert($log);
 			$this->session->set_flashdata('Info', "<b>\"".$key."\"</b> Berhasil di kirim ke ".$data['approve']);
-			redirect('approval/dashboard');
+			redirect(ucfirst('approval/dashboard'));
 		}
 	}
 }

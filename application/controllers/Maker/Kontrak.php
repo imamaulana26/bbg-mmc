@@ -11,7 +11,7 @@ class Kontrak extends CI_Controller{
 		$email = $this->session->userdata('email');
 		if(empty($email)){
 			$this->session->sess_destroy();
-			redirect('login');
+			redirect(ucfirst('login'));
 		}
 	}
 
@@ -104,14 +104,14 @@ class Kontrak extends CI_Controller{
 			$log['detail'] = 'Berhasil mengubah data pada Pendaftaran Kontrak (LD) dengan No.MMC '.$data['no_fos'];
 			$this->m_log->insert($log);
 			$this->session->set_flashdata('Info', "Data dengan No. MMC <b>\"".$data['no_fos']."\"</b> berhasil diubah!");
-			if($akses == 'Reviewer' || $akses == 'Approval') redirect('approval/dashboard');
-			else redirect('maker/dashboard');
+			if($akses == 'Reviewer' || $akses == 'Approval') redirect(ucfirst('approval/dashboard'));
+			else redirect(ucfirst('maker/dashboard'));
 		} else{
 			$this->m_kontrak->insertData($data);
 			$log['detail'] = 'Berhasil menambahkan data pada Pendaftaran Kontrak (LD) dengan No.MMC '.$data['no_fos'];
 			$this->m_log->insert($log);
 			$this->session->set_flashdata('Info', "Data dengan No. MMC <b>\"".$data['no_fos']."\"</b> berhasil disimpan!");
-			redirect('maker/dashboard');
+			redirect(ucfirst('maker/dashboard'));
 		}
 	}
 }

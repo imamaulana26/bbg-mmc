@@ -12,7 +12,7 @@ class Jaminan extends CI_Controller{
 		$email = $this->session->userdata('email');
 		if(empty($email)){
 			$this->session->sess_destroy();
-			redirect('login');
+			redirect(ucfirst('login'));
 		}
 	}
 
@@ -74,15 +74,15 @@ class Jaminan extends CI_Controller{
 			
 			$cek = $this->m_asset->getData($key);
 			if($cek->num_rows() > 0){	
-				redirect('maker/asset/edit_asset/'.$data['no_fos']);
+				redirect(ucfirst('maker/asset/edit_asset/'.$data['no_fos']));
 			} else{
-				redirect('maker/asset/add_asset/'.$data['no_fos']);
+				redirect(ucfirst('maker/asset/add_asset/'.$data['no_fos']));
 			}
 		} else{
 			$this->m_jaminan->insertData($data);
 			$log['detail'] = 'Berhasil menambahkan data pada Pendaftaran Nilai Jaminan dengan No.MMC '.$data['no_fos'];
 			$this->m_log->insert($log);
-			redirect('maker/asset/add_asset/'.$data['no_fos']);
+			redirect(ucfirst('maker/asset/add_asset/'.$data['no_fos']));
 		}
 	}
 }

@@ -11,7 +11,7 @@ class Anak extends CI_Controller{
 		$email = $this->session->userdata('email');
 		if(empty($email)){
 			$this->session->sess_destroy();
-			redirect('login');
+			redirect(ucfirst('login'));
 		}
 	}
 
@@ -83,15 +83,15 @@ class Anak extends CI_Controller{
 			
 			$cek = $this->m_link->getData($key);
 			if($cek->num_rows() > 0){	
-				redirect('maker/link/edit_link/'.$data['no_fos']);
+				redirect(ucfirst('maker/link/edit_link/'.$data['no_fos']));
 			} else{
-				redirect('maker/link/add_link/'.$data['no_fos']);
+				redirect(ucfirst('maker/link/add_link/'.$data['no_fos']));
 			}
 		} else{
 			$this->m_anak->insertData($data);
 			$log['detail'] = 'Berhasil menambahkan data pada Fasilitas Anak dengan No.MMC '.$data['no_fos'];
 			$this->m_log->insert($log);
-			redirect('maker/link/add_link/'.$data['no_fos']);
+			redirect(ucfirst('maker/link/add_link/'.$data['no_fos']));
 		}
 	}
 }

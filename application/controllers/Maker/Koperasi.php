@@ -11,7 +11,7 @@ class Koperasi extends CI_Controller{
 		$email = $this->session->userdata('email');
 		if(empty($email)){
 			$this->session->sess_destroy();
-			redirect('login');
+			redirect(ucfirst('login'));
 		}
 	}
 
@@ -89,7 +89,7 @@ class Koperasi extends CI_Controller{
 			$log['detail'] = 'Berhasil menambahkan data pada Pendaftaran Koperasi dengan CIF '.$key;
 			$this->m_log->insert($log);
 			$this->session->set_flashdata('Info', "Data koperasi dengan CIF <b>\"".$key."\"</b> a/n <b>\"".$data['nama_kop']."\"</b> berhasil disimpan!");
-			redirect('maker/koperasi');
+			redirect(ucfirst('maker/koperasi'));
 		}
 	}
 
@@ -146,7 +146,7 @@ class Koperasi extends CI_Controller{
 			$log['detail'] = 'Berhasil mengubah data pada Pendaftaran Koperasi dengan CIF '.$key;
 			$this->m_log->insert($log);
 			$this->session->set_flashdata('Info', "Data koperasi dengan CIF <b>\"".$key."\"</b> a/n <b>\"".$data['nama_kop']."\"</b> berhasil diubah!");
-			redirect('maker/koperasi');
+			redirect(ucfirst('maker/koperasi'));
 		}
 	}
 }

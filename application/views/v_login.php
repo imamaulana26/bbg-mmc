@@ -19,7 +19,7 @@
                                 <strong><?= $msg ?></strong>
                             </div>
                         <?php } ?>
-                        <form action="<?= site_url('Login/auth') ?>" method="post">
+                        <form action="<?= site_url(ucfirst('login/auth')) ?>" method="post">
                             <fieldset>
                                 <div class="form-group input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-		<p><marquee>Info lebih lanjut harap hubungi : ex.3641 - Imam BBG atau <a href="mailto:ggunawan@bsm.co.id">ggunawan@bsm.co.id</a></marquee></p>
+		<!-- <p><marquee>Info lebih lanjut harap hubungi : ex.3641 - Imam BBG atau <a href="mailto:ggunawan@bsm.co.id">ggunawan@bsm.co.id</a></marquee></!--> -->
     </div>
 
     <?php $this->load->view('layout/_footer'); ?>

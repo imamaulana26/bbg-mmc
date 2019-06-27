@@ -1504,9 +1504,9 @@
                             <button type="submit" name="reject" value="Revisi Maker" class="btn btn-default">
                                 Back to Maker <i class="glyphicon glyphicon-refresh"></i>
                             </button>
-                            <button type="submit" name="approve" value="Approval" class="btn btn-default">
+                            <!-- <button type="submit" name="approve" value="Approval" class="btn btn-default">
                                 Approved <i class="glyphicon glyphicon-check"></i>
-                            </button>
+                            </button> -->
                         </div>
                         <?php } else { ?>
 						<div class="modal-footer">

@@ -53,7 +53,7 @@
                 } ?>
                 <li><a href="<?= site_url(ucfirst('maker/koperasi')) ?>"><i class="fa fa-university fa-fw"></i> Daftar Koperasi</a></li> 
             <?php } ?>
-			<li><a href="<?= site_url(ucfirst('Pto')) ?>" ><i class="glyphicon glyphicon-exclamation-sign"></i> Petunjuk Penggunaan</a></li>
+			<li><a href="<?= site_url(ucfirst('pto')) ?>" ><i class="glyphicon glyphicon-exclamation-sign"></i> Petunjuk Penggunaan</a></li>
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

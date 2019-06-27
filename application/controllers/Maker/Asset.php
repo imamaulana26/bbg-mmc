@@ -12,7 +12,7 @@ class Asset extends CI_Controller{
 		$email = $this->session->userdata('email');
 		if(empty($email)){
 			$this->session->sess_destroy();
-			redirect('login');
+			redirect(ucfirst('login'));
 		}
 	}
 
@@ -84,18 +84,18 @@ class Asset extends CI_Controller{
 			
 			$cek = $this->m_kontrak->getData($key);
 			if($cek->num_rows() > 0){
-				redirect('maker/kontrak/edit_kontrak/'.$data['no_fos']);
+				redirect(ucfirst('maker/kontrak/edit_kontrak/'.$data['no_fos']));
 			} else{
-				redirect('maker/kontrak/add_kontrak/'.$data['no_fos']);
+				redirect(ucfirst('maker/kontrak/add_kontrak/'.$data['no_fos']));
 			}
-			// redirect('maker/agent/edit_agent/'.$data['no_fos']);
+			// redirect(ucfirst('maker/agent/edit_agent/'.$data['no_fos']));
 			
 		} else{
 			$this->m_asset->insertData($data);
 			$log['detail'] = 'Berhasil menambahkan data pada Pendaftaran Asset Murabahah dengan No.MMC '.$data['no_fos'];
 			$this->m_log->insert($log);
-			redirect('maker/kontrak/add_kontrak/'.$data['no_fos']);
-			// redirect('maker/agent/add_agent/'.$data['no_fos']);
+			redirect(ucfirst('maker/kontrak/add_kontrak/'.$data['no_fos']));
+			// redirect(ucfirst('maker/agent/add_agent/'.$data['no_fos']));
 		}
 	}
 }

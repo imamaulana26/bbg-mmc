@@ -11,7 +11,7 @@ class Input extends CI_Controller{
 		$email = $this->session->userdata('email');
 		if(empty($email)){
 			$this->session->sess_destroy();
-			redirect('login');
+			redirect(ucfirst('login'));
 		}
 	}
 
@@ -54,7 +54,7 @@ class Input extends CI_Controller{
 
 		if($query->num_rows() > 0){
 			$this->m_input->deleteAll($key);
-			redirect('maker/dashboard');
+			redirect(ucfirst('maker/dashboard'));
 		}
 	}
 
@@ -169,9 +169,9 @@ class Input extends CI_Controller{
 			
 			$cek = $this->m_induk->getData($key);
 			if($cek->num_rows() > 0){
-				redirect('maker/induk/edit_induk/'.$data['no_fos']);
+				redirect(ucfirst('maker/induk/edit_induk/'.$data['no_fos']));
 			} else{
-				redirect('maker/induk/add_induk/'.$data['no_fos']);
+				redirect(ucfirst('maker/induk/add_induk/'.$data['no_fos']));
 			}
 		} /*elseif($cif->num_rows() > 0){
 			echo "<script type='text/javascript'>alert('Nomor CIF sudah terdaftar');";
@@ -180,7 +180,7 @@ class Input extends CI_Controller{
 			$this->m_input->insertData($data);
 			$log['detail'] = 'Berhasil menambahkan data pada Form Input dengan No.MMC '.$data['no_fos'];
 			$this->m_log->insert($log);
-			redirect('maker/induk/add_induk/'.$data['no_fos']);
+			redirect(ucfirst('maker/induk/add_induk/'.$data['no_fos']));
 		}
 	}
 }

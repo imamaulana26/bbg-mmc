@@ -11,7 +11,7 @@ class User extends CI_Controller{
 		$email = $this->session->userdata('email');
 		if(empty($email)){
 			$this->session->sess_destroy();
-			redirect('login');
+			redirect(ucfirst('login'));
 		}
 	}
 
@@ -133,7 +133,7 @@ class User extends CI_Controller{
 				$this->m_log->insert($log);
 				$this->m_user->insertData($data);
 				$this->session->set_flashdata('Info', "Data dengan No. Induk Pegawai <b>\"".$data['nip_user']."\"</b> berhasil disimpan!");
-				redirect($_SERVER['HTTP_REFERER']);
+				redirect(ucfirst($_SERVER['HTTP_REFERER']));
 			} else{
 				$data = array(
 					'nip_user' => $key,
@@ -160,7 +160,7 @@ class User extends CI_Controller{
 				$this->m_log->insert($log);
 				$this->m_user->insertData($data);
 				$this->session->set_flashdata('Info', "Data dengan No. Induk Pegawai <b>\"".$data['nip_user']."\"</b> berhasil disimpan!");
-				redirect($_SERVER['HTTP_REFERER']);
+				redirect(ucfirst($_SERVER['HTTP_REFERER']));
 			}
 		}
 	}
@@ -234,7 +234,7 @@ class User extends CI_Controller{
 				$this->m_log->insert($log);
 				$this->m_user->updateData($key, $data);
 				$this->session->set_flashdata('Info', "Data dengan No. Induk Pegawai <b>\"".$data['nip_user']."\"</b> berhasil diubah!");
-				redirect('admin/user/edit_user/'.$key);
+				redirect(ucfirst('admin/user/edit_user/'.$key));
 			} else{
 				$data = array(
 					'nip_user' => $key,
@@ -261,7 +261,7 @@ class User extends CI_Controller{
 				$this->m_log->insert($log);
 				$this->m_user->updateData($key, $data);
 				$this->session->set_flashdata('Info', "Data dengan No. Induk Pegawai <b>\"".$data['nip_user']."\"</b> berhasil diubah!");
-				redirect('admin/user/edit_user/'.$key);
+				redirect(ucfirst('admin/user/edit_user/'.$key));
 			}
 		}
 	}
@@ -278,12 +278,12 @@ class User extends CI_Controller{
 			foreach($query->result() as $res){
 				if($res->password != $pass){
 					$this->session->set_flashdata('Info', "Password invalid");
-					redirect('admin/user/edit_user/'.$key);
+					redirect(ucfirst('admin/user/edit_user/'.$key));
 				}
 			}
 			if(($new_pass != $conf_pass) || (empty($new_pass) && empty($conf_pass))){
 				$this->session->set_flashdata('Info', "Konfirmasi password tidak sesuai");
-				redirect('admin/user/edit_user/'.$key);
+				redirect(ucfirst('admin/user/edit_user/'.$key));
 			} else{
 				if($query->num_rows() > 0){
 					$data = array(
@@ -293,7 +293,7 @@ class User extends CI_Controller{
 
 					$this->m_user->updateData($key, $data);
 					$this->session->set_flashdata('Info', "Data dengan No. Induk Pegawai <b>\"".$data['no_employe']."\"</b> berhasil diubah!");
-					redirect('admin/dashboard');
+					redirect(ucfirst('admin/dashboard'));
 				}
 			}
 		}

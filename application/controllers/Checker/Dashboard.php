@@ -9,7 +9,7 @@ class Dashboard extends CI_Controller{
 		$email = $this->session->userdata('email');
 		if(empty($email)){
 			$this->session->sess_destroy();
-			redirect('login');
+			redirect(ucfirst('login'));
 		}
 	}
 
@@ -49,7 +49,7 @@ class Dashboard extends CI_Controller{
 		if($query->num_rows() > 0){
 			$this->m_input->updateData($key, $data);
 			$this->session->set_flashdata('Info',"Berhasil input tanggal pencairan pada <b>\"".$data['tgl_cair']."\"</b> dengan No.MMC <b>\"".$key."\"</b>.");
-			redirect('checker/dashboard');
+			redirect(ucfirst('checker/dashboard'));
 		}
 	}
 
@@ -108,7 +108,7 @@ class Dashboard extends CI_Controller{
 			$this->m_input->updateData($key, $data);
 			$this->m_log->insert($log);
 			$this->session->set_flashdata('Info', "Status <b>\"".$key."\"</b> saat ini <b>\"".$data['approve']."\"</b>");
-			redirect('checker/dashboard');
+			redirect(ucfirst('checker/dashboard'));
 		}
 	}
 }

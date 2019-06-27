@@ -11,7 +11,7 @@ class Agent extends CI_Controller{
 		$email = $this->session->userdata('email');
 		if(empty($email)){
 			$this->session->sess_destroy();
-			redirect('login');
+			redirect(ucfirst('login'));
 		}
 	}
 
@@ -51,10 +51,10 @@ class Agent extends CI_Controller{
 		$query = $this->m_agent->getData($key);
 		if($query->num_rows() > 0){
 			$this->m_agent->updateData($key, $data);
-			redirect('maker/kontrak/edit_kontrak/'.$data['no_fos']);
+			redirect(ucfirst('maker/kontrak/edit_kontrak/'.$data['no_fos']));
 		} else{
 			$this->m_agent->insertData($data);
-			redirect('maker/kontrak/add_kontrak/'.$data['no_fos']);
+			redirect(ucfirst('maker/kontrak/add_kontrak/'.$data['no_fos']));
 		}
 	}
 }
